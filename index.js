@@ -8,7 +8,7 @@ var MongoClient = mongodb.MongoClient;
 server.use(express.static( "public"));
 server.use(bodyParser.json())
 
-var url = "mongodb://localhost:27017";
+var url = "mongodb://54.89.215.71:27017";
 var db;
 
 MongoClient.connect(url,function(err,client){
