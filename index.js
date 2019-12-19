@@ -15,8 +15,11 @@ MongoClient.connect(url,{
     useUnifiedTopology: true,
     useNewUrlParser: true,
 },function(err,client){
-    db = client.db("demoDB");
-    console.log("error :",err);
+    if(err){
+        console.log("error :",err);
+    }else{    
+        db = client.db("demoDB");
+    }
 })
 
 server.get("/list",function(req,res){
