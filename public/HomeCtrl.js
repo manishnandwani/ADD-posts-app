@@ -16,22 +16,17 @@ angular.module("postApp",[])
             }
         }).then(function(response) {
             $scope.spinner = false
-            // console.log("get",response)
             if(response.status == 200){
                 $scope.list = response.data
-                console.log("orgdrop",response.data)
             }else{
                 console.log("error");
             }
         }).catch(function(err){
             $scope.spinner = false        
-
-            console.log("err",err)
         })
     }
     $scope.getPosts()
-    $scope.list = [{name :"1",createdOn : new Date(),votes : 1}]
-
+	
     $scope.addPost = function(){
         $scope.addSpinner = true        
         $http.post("/add",{name: $scope.post,votes : 0,createdOn : new Date()},{
@@ -43,7 +38,6 @@ angular.module("postApp",[])
 		}).then(function(response){
             $scope.addSpinner = false        
             $scope.getPosts()
-            console.log("add",response)
         }).catch(function(err){
             $scope.addSpinner = false        
             console.log(err)
@@ -51,7 +45,6 @@ angular.module("postApp",[])
     }
 
     $scope.upVote = function(item){
-        console.log("test item",item)
         $scope.spinner = true
         $http.put('/edit',{_id: item._id, votes : ++item.votes},{
             headers: {
@@ -59,8 +52,7 @@ angular.module("postApp",[])
                 "X-Login-Ajax-call": 'true',
                 "Access-Control-Allow-Origin": '*'
             }
-		}).then(function(response){
-            console.log("edit",response)
+	}).then(function(response){
             $scope.spinner = false
             $scope.getPosts()
         }).catch(function(err){
