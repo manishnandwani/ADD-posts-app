@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 // var mongodb = require("mongodb");
 // var MongoClient = mongodb.MongoClient;
 var mongoose = require('mongoose');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 server.use(express.static("public"));
 server.use(bodyParser.json())
@@ -41,7 +42,7 @@ server.post("/add", function (req, res) {
 
 server.put("/edit", function (req, res) {
     _db.collection("posts").updateOne({
-        _id: new mongodb.ObjectID(req.body._id)
+        _id: ObjectId(req.body._id)
     }, {
         $set: {
             votes: req.body.votes
