@@ -11,7 +11,10 @@ server.use(bodyParser.json())
 var url = "mongodb://54.89.215.71:27017";
 var db;
 
-MongoClient.connect(url,function(err,client){
+MongoClient.connect(url,{
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+},function(err,client){
     db = client.db("demoDB");
     console.log("error :",err);
 })
