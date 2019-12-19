@@ -1,0 +1,58 @@
+
+<html ng-app="postApp">
+    <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="./css/developer.css">
+
+        <script src="./HomeCtrl.js"></script>
+
+        <!-- <link rel="stylesheet" href="../css/font-awesome.min.css"> -->
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body class="mainBody">
+        <div ng-controller="homeCtrl">
+            <div class="center">
+                <h1>Post App</h1>
+                
+            </div>
+            <div class="container-fluid block">
+                <input type="text" ng-model="post" name="name">
+                <button type="button" ng-disabled="!(post)" ng-click="addPost()" class="btn btn-info">  <span class="spinner-border spinner-border-sm" ng-if="addSpinner"></span> <span ng-if="addSpinner"> loading...</span> <span ng-if="!addSpinner">Add</span></button>
+            </div>
+            
+            <span class="spinner-border spinner-border-sm" ng-if="spinner"></span> <span ng-if="spinner"> loading...</span>
+            <br>
+            <ul>
+                <li ng-repeat="item in list">
+                   <h4> 
+                       <div class="row">
+                           <div class="col-2">
+                               <span class="itemName">{{item.name}}</span>
+                            </div>
+                            <div class="col-3">
+                                {{item.createdOn}} 
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-primary marginSet" ng-click="upVote(item)">  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    <label class="badge badge-warning">{{item.votes}}</label>
+                                </button> 
+                            </div>
+                        </div>
+                    </h4>
+                </li>
+                <br> 
+            </ul>
+        </div>
+            
+
+    </body>
+</html>

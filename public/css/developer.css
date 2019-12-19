@@ -1,0 +1,25 @@
+.block{
+
+}
+.center{
+    display: block;
+    text-align: center;
+}
+.mainBody{
+    background-color:   blanchedalmond
+}
+.marginSet{
+    margin-left: 10px;
+    margin-right: 10px;
+    position : relative;
+    margin-left: 20px
+}
+.itemName{
+    color : red;
+    margin-right: 20px
+}
+.btn .badge{
+    position: absolute;
+    top: -9px;
+    right: -9px;
+}
