@@ -10,7 +10,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 server.use(express.static("public"));
 server.use(bodyParser.json())
 
-var url = "mongodb://54.89.215.71:27017";
+var url = "mongodb://127.0.0.1:27017";
 var _db;
 mongoose.connect(url, {
     socketTimeoutMS: 30000,
