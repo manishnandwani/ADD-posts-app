@@ -12,7 +12,11 @@ server.use(bodyParser.json())
 
 var url = "mongodb://54.89.215.71:27017";
 var _db;
-mongoose.connect(url, function (err, db) {
+mongoose.connect(url, {
+    socketTimeoutMS: 30000,
+    keepAlive: true,
+    reconnectTries: 30000
+},function (err, db) {
     if (err)
         console.log(err)
     _db = db;
