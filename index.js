@@ -46,7 +46,7 @@ server.post("/add", function (req, res) {
 
 server.put("/edit", function (req, res) {
     _db.collection("posts").updateOne({
-        _id: mongoose.Types.ObjectId(req.body._id)
+        _id: mongoose.mongo.ObjectId(req.body._id)
     }, {
         $set: {
             votes: req.body.votes
